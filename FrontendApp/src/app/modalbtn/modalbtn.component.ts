@@ -1,8 +1,6 @@
-import { Component , TemplateRef} from '@angular/core';
+import { Component, TemplateRef } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { UserdataComponent } from '../userdata/userdata.component';
-import {MatDialog, MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
-
-
 
 @Component({
   selector: 'app-modalbtn',  
@@ -10,15 +8,16 @@ import {MatDialog, MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog
   styleUrls: ['./modalbtn.component.css']
 })
 export class ModalbtnComponent {
-  constructor(
-    public dialogRef: MatDialogRef<UserdataComponent>
-  ) {}
-
-  onNoClick(): void {
-    this.dialogRef.close();
-  }
+  
+constructor(public dialog: MatDialog) {}
  
-  openDialog(dialogRef : UserdataComponent){
-  this.dialogRef.open(dialogRef);
-  }
+openDialog(templateRef: TemplateRef<any>) {
+  let dialogRef = this.dialog.open(templateRef, {
+    width: '300px',
+    height:'300px' // Adjust width as needed
+  });
+}
+
+
+
 }

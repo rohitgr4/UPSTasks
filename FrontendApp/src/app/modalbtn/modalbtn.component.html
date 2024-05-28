@@ -1,6 +1,8 @@
-<button type="button" class="btn btn-warning" (click)="openDialog(template)">OpenTable</button>
-<ng-template #template>
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<button type="button" class="btn btn-warning"  (click)="openDialog(myDialog)" >OpenTable</button>
+ <ng-template #myDialog>
+  <h2 matDialogTitle>User Data</h2>
+  <mat-dialog-content>
+     <!-- <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
@@ -14,5 +16,10 @@
         </div>        
       </div>
     </div>
-  </div>
-   </ng-template>
+  </div> -->
+  <app-userdata></app-userdata>
+  </mat-dialog-content>
+  <mat-dialog-actions align="end">
+    <button mat-button matDialogClose color="primary">Dismiss</button>
+  </mat-dialog-actions>
+</ng-template>
